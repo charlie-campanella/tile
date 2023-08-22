@@ -1,0 +1,183 @@
+/* Global Styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-family: 'Raleway', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p, i {
+    margin: 0;
+}
+
+a {
+    font-weight: 600;
+    text-decoration: none;
+}
+
+button, input[type="submit"] {
+    background-color: black;
+    border: none;
+    border-radius: 0.5em;
+    color: white;
+    font-size: 1.05em;
+    font-weight: bold;
+    padding: 0.75em 1em 0.75em 1em;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.button-loading {
+    background-color: #eee;
+    color: #aaa;
+    &:hover {
+        cursor: not-allowed;
+    }
+}
+
+input[type="text"], input[type="email"], input[type="password"], textarea {
+    border: 1px solid #eee;
+    border-radius: 0.5em;
+    padding: 0.5em 1em 0.5em 1em;
+}
+
+textarea {
+    resize: none;
+}
+
+/** Layout Component **/
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Layout Header */
+.layout > .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    padding: 0em 1em 0em 1em;
+    position: relative;
+}
+
+.layout > .header > .logo {
+    height: 2em;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.layout > .header > .title { /* Absolute center title due to dynamic navigation size */
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.layout > .header > .navigation > ul {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    list-style: none;
+}
+
+/* Layout Content */
+.content {
+    display: flex;
+    flex-grow: 1;
+    padding: 1em;
+}
+
+.content > .empty-state {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.content > .empty-state > .icon {
+   font-size: 3em;
+}
+
+/* Layout Footer */
+.layout > .footer {
+    border-top: 1px solid #eee;
+    padding: 1em;
+}
+
+/** Login/Registration **/
+.formWrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.formWrapper > form {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #eee;
+    border-radius: 0.5em;
+    padding: 1em;
+    gap: 1em;
+    width: 20em;
+}
+
+.formWrapper > form > label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  font-weight: bold;
+}
+
+/** Tile Grid **/
+.tile-grid {
+    columns: 3;
+    width: 100%;
+    @media (max-width: 1024px) {
+        columns: 2;
+    }
+    @media (max-width: 768px) {
+        columns: 1;
+    }
+}
+
+/** Tile Component **/
+.tile {
+    display: flex;
+    flex-direction: column;
+    break-inside: avoid-column;
+    border: 1px solid #eee;
+    border-radius: 0.5em;
+    padding: 1em;
+    min-height: 30vh;
+    margin-bottom: 1em;
+}
+
+.tile > .header {
+    display: flex;
+    flex-grow: 0;
+    border-bottom: 1px solid #eee;
+    font-weight: bold;
+    padding-bottom: 1em;
+}
+
+.tile > .header > .icon {
+    margin-left: auto;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.tile > iframe {
+    display: flex;
+    flex-grow: 1;
+    border: none;
+}
