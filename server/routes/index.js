@@ -89,10 +89,4 @@ router.delete('/tiles/:id', requireAuth, async (req, res) => {
     }
 });
 
-// Remaining routes are handled in-browser via React Router
-router.get('/*', (req, res) => {
-    res.contentType('text/html');
-    res.sendFile('index.html', { root: 'public' });
-});
-
 module.exports = router;
